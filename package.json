@@ -8,13 +8,14 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pb_serve": "./pb/pocketbase serve --publicDir ./dist"
+    "pb_serve": "vite build && ./pb/pocketbase serve --publicDir ./dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router": "^7.9.1",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
