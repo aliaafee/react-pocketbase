@@ -2,6 +2,6 @@
 
 @layer base {
   a {
-    @apply text-blue-500 underline hover:text-blue-400;
+    @apply text-blue-500 underline hover:text-blue-400 cursor-pointer;
   }
 }

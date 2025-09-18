@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pb_serve": "vite build && ./pb/pocketbase serve --publicDir ./dist"
+    "pb:serve": "./pb/pocketbase serve --publicDir ./dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",

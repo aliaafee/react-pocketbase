@@ -36,7 +36,7 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           required
-          className="bg-white text-black rounded-lg px-4 py-1"
+          className="bg-white text-black rounded-lg px-3 py-1"
         />
 
         <label className="mt-2">Password</label>
@@ -45,7 +45,7 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           required
-          className="bg-white text-black rounded-lg px-4 py-1"
+          className="bg-white text-black rounded-lg px-3 py-1"
         />
 
         {err && <p className="mt-4 text-red-500">{err}</p>}
