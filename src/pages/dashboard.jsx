@@ -7,10 +7,11 @@ export default function Dashboard() {
 
   return (
     <CenterBox>
-      <h1 className="font-bold">Dashboard</h1>
-      <div className="mt-4 flex gap-4">
-        <Link to="/">Back</Link>
+      <div className="flex gap-4 text-left w-full">
+        <Link to="/">{"<"} Back</Link>
       </div>
+      <h1 className="font-bold">Dashboard</h1>
+
       <p className="mt-4">Welcome {user?.email || user?.username}!</p>
       <button
         className="mt-4 px-2 py-1 bg-gray-600 hover:bg-gray-500 rounded-lg"

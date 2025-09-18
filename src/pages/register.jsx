@@ -24,10 +24,11 @@ export default function Register() {
 
   return (
     <CenterBox>
-      <h1 className="font-bold">Register</h1>
-      <div className="mt-4 flex gap-4">
-        <Link to="/">Back</Link>
+      <div className="flex gap-4 text-left w-full">
+        <Link to="/">{"<"} Back</Link>
       </div>
+      <h1 className="font-bold">Register</h1>
+
       <form
         onSubmit={onSubmit}
         className="grid grid-cols-1 mt-4 justify-items-center"
