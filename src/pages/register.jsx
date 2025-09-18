@@ -1,31 +1,33 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import { useAuth } from "@/contexts/auth-context";
 import CenterBox from "@/components/center-box";
 
-function Login() {
-  const { login } = useAuth();
+export default function Register() {
+  const { register } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [err, setErr] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
 
   async function onSubmit(e) {
     e.preventDefault();
     setErr("");
     try {
-      await login(email, password);
-      navigate(from, { replace: true });
+      await register({ email, password, passwordConfirm });
+      navigate("/", { replace: true });
     } catch (e) {
-      setErr(e?.message || "Login failed");
+      setErr(e?.message || "Registration failed");
     }
   }
 
   return (
     <CenterBox>
-      <h1 className="font-bold">Login</h1>
+      <h1 className="font-bold">Register</h1>
+      <div className="mt-4 flex gap-4">
+        <Link to="/">Back</Link>
+      </div>
       <form
         onSubmit={onSubmit}
         className="grid grid-cols-1 mt-4 justify-items-center"
@@ -48,16 +50,23 @@ function Login() {
           className="bg-white text-black rounded-lg px-4 py-1"
         />
 
+        <label className="mt-2">Confirm Password</label>
+        <input
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          type="password"
+          required
+          className="bg-white text-black rounded-lg px-4 py-1"
+        />
+
         {err && <p className="mt-4 text-red-500">{err}</p>}
         <button
           type="submit"
           className="mt-4 px-4 py-1 bg-gray-600 hover:bg-gray-500 rounded-lg"
         >
-          Sign in
+          Create account
         </button>
       </form>
     </CenterBox>
   );
 }
-
-export default Login;
