@@ -26,6 +26,7 @@ function Login() {
   return (
     <CenterBox>
       <h1 className="font-bold">Login</h1>
+      {import.meta.env.VITE_PB_BASE_URL}
       <form
         onSubmit={onSubmit}
         className="grid grid-cols-1 mt-4 justify-items-center"
