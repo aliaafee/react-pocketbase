@@ -47,7 +47,7 @@ if [ -z "$LATEST_URL" ]; then
 fi
 
 TMPFILE=$(mktemp)
-curl -L "$LATEST_URL" -o "$TMPFILE"
+sudo -u pbuser curl -L "$LATEST_URL" -o "$TMPFILE"
 sudo -u pbuser unzip -o "$TMPFILE" -d "$PB_DIR"
 rm "$TMPFILE"
 
