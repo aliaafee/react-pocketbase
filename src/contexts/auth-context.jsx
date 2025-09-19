@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
         setLoading(true);
         const authData = await pb
           .collection("users")
-          .authWithPassword(email, password);
+          .authWithPassword(email, password, { autoRefreshThreshold: 30 * 60 });
         setLoading(false);
         setUser(authData.record);
         return authData.record;
@@ -42,10 +42,8 @@ export function AuthProvider({ children }) {
         const record = await pb
           .collection("users")
           .create({ email, password, passwordConfirm });
-        // Optionally auto-login:
-        await pb.collection("users").authWithPassword(email, password);
+
         setLoading(false);
-        setUser(pb.authStore.record);
         return record;
       },
 
