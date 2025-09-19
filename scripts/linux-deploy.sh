@@ -33,7 +33,8 @@ echo "[*] Cloning repository..."
 if [ ! -d "$ROOT_DIR/.git" ]; then
     sudo -u $PB_USER git clone https://github.com/aliaafee/react-pocketbase.git $ROOT_DIR
 else
-    echo "Repo already cloned, skipping."
+    echo "Repo already cloned, pulling changes."
+    sudo -u $PB_USER git pull
 fi
 
 # Install dependencies
