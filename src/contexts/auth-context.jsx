@@ -4,19 +4,19 @@ import { pb } from "@/lib/pb";
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(pb.authStore.model);
+  const [user, setUser] = useState(pb.authStore.record);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // initial refresh attempt
     (async () => {
-      setUser(pb.authStore.model);
+      setUser(pb.authStore.record);
       setLoading(false);
     })();
 
     // subscribe to auth changes
-    const unsubscribe = pb.authStore.onChange((_token, model) => {
-      setUser(model);
+    const unsubscribe = pb.authStore.onChange((_token, record) => {
+      setUser(record);
     });
     return unsubscribe;
   }, []);
@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
         // Optionally auto-login:
         await pb.collection("users").authWithPassword(email, password);
         setLoading(false);
-        setUser(pb.authStore.model);
+        setUser(pb.authStore.record);
         return record;
       },
 
