@@ -32,11 +32,9 @@ sudo chown -R $PB_USER:$PB_USER $ROOT_DIR
 echo "[*] Cloning repository..."
 if [ ! -d "$ROOT_DIR/.git" ]; then
     sudo -u $PB_USER git clone https://github.com/aliaafee/react-pocketbase.git $ROOT_DIR
-    cd $ROOT_DIR
 else
     echo "Repo already cloned, pulling changes."
-    cd $ROOT_DIR
-    sudo -u $PB_USER git pull
+    sudo -u $PB_USER git -C $ROOT_DIR pull
 fi
 
 # Install dependencies
