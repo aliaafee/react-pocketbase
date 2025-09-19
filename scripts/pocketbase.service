@@ -12,7 +12,7 @@ Group=pocketbase
 WorkingDirectory=/opt/react-pocketbase/pb
 
 # The executable path
-ExecStart=/opt/react-pocketbase/pb/pocketbase serve --http 0.0.0.0:8090
+ExecStart=/opt/react-pocketbase/pb/pocketbase serve --http 0.0.0.0:8090 --publicDir /opt/react-pocketbase/dist
 
 # Restart policy
 Restart=on-failure
